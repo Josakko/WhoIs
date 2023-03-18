@@ -1,5 +1,6 @@
 import requests, json, argparse, sys, socket
 from netaddr import *
+import time
 
 class colors:
 	blue = "\033[1;34m"
@@ -88,3 +89,4 @@ if __name__ == '__main__':
 		print("{}{}{}".format(colors.red, str(e).capitalize(), colors.normal))
 	except Exception as e:
 		print("{}{}{}".format(colors.red, e, colors.normal))
+time.sleep(30)
