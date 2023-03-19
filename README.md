@@ -6,7 +6,7 @@ Who is made in python
 Usage example down below.
 
 <p align="center">
-  <img alt="issue" src="https://github.com/Josakko/WhoIs/screenshot.png/" width="650px">
+  <img alt="issue" src="https://github.com/Josakko/WhoIs/blob/main/screenshot.png?raw=true" width="650px">
 </p>
 
 ## Need Help?
