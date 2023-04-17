@@ -6,26 +6,30 @@ if [[ "$mode" == "reverse" ]]; then
     echo "Enter domain: "
     read domain
 
-    echo "Select submode (--clean, --raw, both, or none): "
+    echo "Select submode (clean, raw, or none): "
     read submode
 
-    if [[ "$submode" == "--clean" || "$submode" == "--raw" || "$submode" == "--clean --raw" || "$submode" == "--raw --clean" ]]; then
-        python3 "path to main.py file /main.py" -r "$domain" "$submode"
+    if [[ "$submode" == "clean" ]]; then
+        python3 main.py -r "$domain" --clean
+    elif [[ "$submode" == "raw" ]]; then
+        python3 main.py -r "$domain" --raw
     else
-        python3 "path to main.py file /main.py" -r "$domain"
+        python3 main.py -r "$domain"
     fi
 
 elif [[ "$mode" == "file" ]]; then
     echo "Enter file: "
     read file
 
-    echo "Select submode (--clean, --raw, both, or none): "
+    echo "Select submode (clean, raw, or none): "
     read submode
 
-    if [[ "$submode" == "--clean" || "$submode" == "--raw" || "$submode" == "--clean --raw" || "$submode" == "--raw --clean" ]]; then
-        python3 "path to main.py file /main.py" -f "$file" "$submode"
+    if [[ "$submode" == "clean" ]]; then
+        python3 main.py -f "$file" --clean
+    elif [[ "$submode" == "raw" ]]; then
+        python3 main.py -f "$file" --raw
     else
-        python3 "path to main.py file /main.py" -f "$file"
+        python3 main.py -f "$file"
     fi
 
 else
