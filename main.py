@@ -1,6 +1,5 @@
 import requests, json, argparse, sys, socket
 from netaddr import *
-import time
 
 class colors:
 	blue = "\033[1;34m"
@@ -39,14 +38,14 @@ def rdap_query(query, output):
 			print("\n{} {} ({}) {}\n\n{}".format("-" * 20, name, i, "-" * 20, raw))
 		elif output == "clean":
 			print(cidr)
-		else: #verbose
+		else:
 			print("\n{title} ({source}) {dash}\n  Name/Handle: {name}/{handle}\n  Net Range: {net_range}\n  CIDR: {cidr}\n  Organization: {org}\n  Address: {address}\n".format(title="{}{}{}".format(colors.bold, org, colors.normal), source=i, dash="{}{}{}".format(colors.blue, "-" * 40, colors.normal), name=name, handle=handle, net_range=net_range, cidr=cidr, org=org, address=address))
 
 
 def main():
         parser = argparse.ArgumentParser()
         querygroup = parser.add_argument_group(title="Search")
-        querygroup.add_argument('query', nargs='?', help='IP address or domain name to query')
+        querygroup.add_argument('--query', nargs='?', help='IP address or domain name to query')
         querygroup.add_argument('-f', metavar='file', nargs='?', help="A new line delimited file containing IP addresses or domain names")
         querygroup.add_argument('-r', action='store_true', help="Retrieve IP address for given domain(s)")
         outgroup = parser.add_mutually_exclusive_group()
@@ -89,4 +88,3 @@ if __name__ == '__main__':
 		print("{}{}{}".format(colors.red, str(e).capitalize(), colors.normal))
 	except Exception as e:
 		print("{}{}{}".format(colors.red, e, colors.normal))
-time.sleep(30)
